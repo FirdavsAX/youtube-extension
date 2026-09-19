@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Minimal Home",
+  "version": "1.0",
+  "description": "Limits YouTube Home to 6 videos and removes distractions from watch pages.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
