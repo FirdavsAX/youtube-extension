@@ -3,6 +3,7 @@
   "name": "YouTube Minimal Home",
   "version": "1.0",
   "description": "Limits YouTube Home to 6 videos and removes distractions from watch pages.",
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],

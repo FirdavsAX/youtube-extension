@@ -102,7 +102,17 @@ function getShortIdFromPath(pathname) {
     return null;
   }
 
-  return decodeURIComponent(match[1]);
+  try {
+    return decodeURIComponent(match[1]);
+  } catch {
+    return null;
+  }
+}
+
+function createWatchUrl(shortId) {
+  const watchUrl = new URL('/watch', location.origin);
+  watchUrl.searchParams.set('v', shortId);
+  return watchUrl.href;
 }
 
 function shortUrlToWatchUrl(value) {
@@ -119,10 +129,7 @@ function shortUrlToWatchUrl(value) {
       return null;
     }
 
-    url.pathname = '/watch';
-    url.searchParams.set('v', shortId);
-
-    return url.href;
+    return createWatchUrl(shortId);
   } catch {
     return null;
   }
@@ -135,12 +142,7 @@ function redirectDirectShortsPage() {
     return false;
   }
 
-  const url = new URL(location.href);
-
-  url.pathname = '/watch';
-  url.searchParams.set('v', shortId);
-
-  location.replace(url.href);
+  location.replace(createWatchUrl(shortId));
 
   return true;
 }
