@@ -257,7 +257,7 @@ function installStyles() {
        HOME PAGE
        ========================================================= */
 
-    html.${HOME_CLASS} ytd-rich-grid-renderer #contents > ytd-rich-item-renderer:nth-of-type(n + 7) {
+    html.${HOME_CLASS} ytd-rich-grid-renderer #contents > ytd-rich-item-renderer:nth-of-type(n + 2) {
       display: none !important;
     }
 
@@ -286,7 +286,8 @@ function installStyles() {
 
     html.${HOME_CLASS} ytd-rich-grid-renderer #contents {
       display: grid !important;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      grid-template-columns: minmax(0, min(900px, 100%)) !important;
+      justify-content: center !important;
       gap: 28px 18px !important;
       padding: 18px 24px 40px !important;
       align-items: start !important;
@@ -357,13 +358,13 @@ function installStyles() {
 
     @media (max-width: 900px) {
       html.${HOME_CLASS} ytd-rich-grid-renderer #contents {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns: minmax(0, min(900px, 100%)) !important;
       }
     }
 
     @media (max-width: 600px) {
       html.${HOME_CLASS} ytd-rich-grid-renderer #contents {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: minmax(0, min(900px, 100%)) !important;
         gap: 20px !important;
         padding: 12px 12px 32px !important;
       }
